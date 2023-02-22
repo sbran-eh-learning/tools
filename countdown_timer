@@ -1,0 +1,69 @@
+'''
+from datetime import datetime
+
+def print_remaining_time(future_date_str):
+    """Calculate and print the remaining time between the current date and a future date."""
+
+    # Parse the future date string into a datetime object
+    try:
+        future_date = datetime.strptime(future_date_str, '%Y-%m-%d %H:%M')
+    except ValueError:
+        print("Invalid date format. Please enter a date in the format 'YYYY-MM-DD HH:MM'.")
+        return
+
+    # Calculate the remaining time in seconds
+    current_date = datetime.now()
+    time_remaining_secs = (future_date - current_date).total_seconds()
+
+    # Convert seconds to months, weeks, days, hours, and minutes
+    months = time_remaining_secs // (30 * 24 * 60 * 60)
+    time_remaining_secs = time_remaining_secs % (30 * 24 * 60 * 60)
+    weeks = time_remaining_secs // (7 * 24 * 60 * 60)
+    time_remaining_secs = time_remaining_secs % (7 * 24 * 60 * 60)
+    days = time_remaining_secs // (24 * 60 * 60)
+    time_remaining_secs = time_remaining_secs % (24 * 60 * 60)
+    hours = time_remaining_secs // (60 * 60)
+    time_remaining_secs = time_remaining_secs % (60 * 60)
+    minutes = time_remaining_secs // 60
+
+    # Print the remaining time
+    print(f"The hardest challenge of your life will start in {int(months)} months, {int(weeks)} weeks, {int(days)} days, {int(hours)} hours, and {int(minutes)} minutes. Are you ready to TRY HARDER?!")
+
+
+# Get the future date from the user
+future_date_str = input("Enter the future date and time (YYYY-MM-DD HH:MM): ")
+
+# Calculate and print the remaining time
+print_remaining_time(future_date_str)
+'''
+
+from datetime import datetime
+
+def print_remaining_time():
+    """Calculate and print the remaining time between the current date and a fixed future date."""
+
+    # Set the fixed future date
+    future_date_str = '2023-10-13 11:00'
+    future_date = datetime.strptime(future_date_str, '%Y-%m-%d %H:%M')
+
+    # Calculate the remaining time in seconds
+    current_date = datetime.now()
+    time_remaining_secs = (future_date - current_date).total_seconds()
+
+    # Convert seconds to months, weeks, days, hours, and minutes
+    months = time_remaining_secs // (30 * 24 * 60 * 60)
+    time_remaining_secs = time_remaining_secs % (30 * 24 * 60 * 60)
+    weeks = time_remaining_secs // (7 * 24 * 60 * 60)
+    time_remaining_secs = time_remaining_secs % (7 * 24 * 60 * 60)
+    days = time_remaining_secs // (24 * 60 * 60)
+    time_remaining_secs = time_remaining_secs % (24 * 60 * 60)
+    hours = time_remaining_secs // (60 * 60)
+    time_remaining_secs = time_remaining_secs % (60 * 60)
+    minutes = time_remaining_secs // 60
+
+    # Print the remaining time
+    print(f"\n\nThe hardest challenge of your life will start in  {int(months)} months, {int(weeks)} weeks, {int(days)} days, {int(hours)} hours, and {int(minutes)} minutes. Are you ready to TRY HARDER?!\n\n")
+
+
+# Calculate and print the remaining time for the fixed future date
+print_remaining_time()
